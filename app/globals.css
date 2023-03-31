@@ -1,0 +1,25 @@
+:root {
+    --titles-font: 'Inter';
+    --geist-background: #000;
+    --geist-foreground: #fff;
+}
+body {
+    max-width: 1300px;
+    height: 800px;
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--geist-background);
+}
+
+h1 {
+    font-family: var(--titles-font);
+    font-size: 6rem;
+    color: var(--geist-foreground);
+}
+
+p, a {
+    font-family: var(--titles-font);
+}
+
+
