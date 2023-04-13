@@ -3,9 +3,16 @@
     place-items: center;
     text-align: center;
     height: 100vh;
+    max-height: 600px;
     width: 90%;
     margin: auto;
 }
+
+.mainLayout h1 {
+    font-size: 6rem;
+    color: #fff;
+}
+
 
 .textMainLayout {
     position: relative;
@@ -37,4 +44,16 @@
 .logInText img {
     width: 40px;
     margin-left: 15px;
+}
+
+@media (max-width: 725px) {
+    .mainLayout h1{
+       font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .mainLayout h1{
+       font-size: 2.7rem;
+    }
 }
