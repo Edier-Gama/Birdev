@@ -37,4 +37,4 @@ const loginWithGithub = () => {
     })
 }
 
-export { loginWithGithub }
+export { loginWithGithub, auth }

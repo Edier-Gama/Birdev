@@ -1,41 +1,31 @@
 'use client'
 
 import Link from 'next/link'
+import { getAuth } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { useRouter } from 'next/navigation'
 import { loginWithGithub } from '../firebase/client'
-import styles from '../styles/home.module.css'
+import styles from '../styles/landing.module.css'
+import githubLogo from '../public/github_logo.png'
 
 function Home () {
   const auth = getAuth()
-  const githubLogo = 'https://cdn-icons-png.flaticon.com/512/25/25231.png'
-  const [user, setUser] = useState(null)
+  const router = useRouter()
+  const [authState, setAuthState] = useState('loading')
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser({
-          username: user.displayName,
-          useremail: user.email,
-          userphoto: user.photoURL
-        })
-      } else {
-        setUser(null)
-      }
+    auth.onAuthStateChanged(user => {
+      setAuthState(user ? 'loggedIn' : 'loggedOut')
     })
   }, [])
 
   function signInWithGithub () {
     loginWithGithub()
-      .then(user => {
-        try {
-          console.log(`Bienvenido, ${user.username}`)
-        } catch (err) {
-          console.error(err)
-        }
-      })
   }
 
+  const redirectToHome = () => {
+    router.push('/home')
+  }
   return (
     <header>
       <main className={styles.mainLayout}>
@@ -45,25 +35,13 @@ function Home () {
           <br />Specifically, related topics on software development
           are shared
         </p>
-        {
-          user === undefined &&
-            <div className={styles.logInText} onClick={signInWithGithub}>
-              <img
-                src={githubLogo}
-                alt='Github Logo'
-              />
-              <Link href=''>LogIn with Github</Link>
-            </div>
-        }
-        {user === null && <div />}
-        {
-          user &&
-            <div>
-              <img src={user.userphoto} alt='' width='100px' />
-              <h1>Bienvenido, {user.username}</h1>
-              <p color='white'>{user.useremail}</p>
-            </div>
-        }
+        {authState === 'loading' && <div />}
+        {authState === 'loggedIn' && redirectToHome()}
+        {authState === 'loggedOut' &&
+          <div className={styles.logInText} onClick={signInWithGithub}>
+            <img src={githubLogo.src} alt='Github Logo' />
+            <Link href=''>LogIn with Github</Link>
+          </div>}
       </main>
     </header>
   )

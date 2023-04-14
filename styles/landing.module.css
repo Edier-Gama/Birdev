@@ -1,0 +1,59 @@
+.mainLayout {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    height: 100vh;
+    max-height: 600px;
+    width: 90%;
+    margin: auto;
+}
+
+.mainLayout h1 {
+    font-size: 6rem;
+    color: #fff;
+}
+
+
+.textMainLayout {
+    position: relative;
+    color: #fff;
+    bottom: 50px;
+    font-size: 1.2rem;
+}
+
+.logInText {
+    display: flex;
+    height: 55px;
+    width: 250px;
+    bottom: 30px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+.logInText a {
+    margin-left: 20px ;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #000;
+}
+
+.logInText img {
+    width: 40px;
+    margin-left: 15px;
+}
+
+@media (max-width: 725px) {
+    .mainLayout h1{
+       font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .mainLayout h1{
+       font-size: 2.7rem;
+    }
+}
