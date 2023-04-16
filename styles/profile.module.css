@@ -3,5 +3,8 @@
 }
 
 .userPhotoProfile {
-    width: 100px ;
+    width: 50px;
+    margin: 15px;
+    border-radius: 100%;
+    cursor: pointer;
 }
