@@ -3,11 +3,18 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.home {
+    position: relative;
+    left: 15%;
+}
 .userphoto {
+    position: relative;
     width: 50px;
     margin: 15px;
     border-radius: 100%;
     cursor: pointer;
+    left: 10%;
 }
 
 .headerNav {
@@ -15,7 +22,6 @@
     width: 90%;
     align-items: center;
     justify-content:left;
-
 }
 
 .post {
@@ -25,12 +31,12 @@
     align-items: flex-start; 
     width: 80%;
     height: 100%;
-    border: 1px solid white;
     max-width: 600px;
     min-width: 300px;
     margin-top: 50px;
     padding: 10px;
     margin-bottom: 25px;
+    left: -10%;
 }
 
 .postContainer{
@@ -47,5 +53,5 @@
     position: relative;
     top: 30px;
     padding-bottom: 45px;
-    right: 60px;
+    right: 40px;
 }

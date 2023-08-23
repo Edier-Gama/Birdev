@@ -15,7 +15,6 @@ function Profile () {
           <h1>Soy tu perfil</h1>
           <Avatar src={user.userphoto} alt='tu foto de perfil' />
           <p>{user.username}</p>
-          <p>{user.useremail}</p>
         </main>}
 
     </section>

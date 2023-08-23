@@ -1,10 +1,11 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import styles from '../../styles/home.module.css'
 import { useUserData } from '../../hooks/useUserData'
+import { useRouter } from 'next/navigation'
 import { Avatar } from '../profile/Avatar'
+
 function Home () {
   const [tweets, setTweets] = React.useState([])
   const user = useUserData()
@@ -27,9 +28,7 @@ function Home () {
       {user &&
         <header>
           <nav className={styles.headerNav}>
-            <div onClick={onChangeToProfile}>
-              <Avatar src={user.userphoto} alt={user.username} />
-            </div>
+            <h2 className={styles.home}>Home</h2>
           </nav>
         </header>}
       <section className={styles.postContainer}>
